@@ -7,7 +7,8 @@ const btnReturn = document.getElementById('returnButton');
 let state = 1
 let symbols = []
 
-header.innerHTML= "Next"
+
+console.log(header)
 //event listeners for the 'next button' and 'return button'
 btnNext.addEventListener('click', nextState);
 btnReturn.addEventListener('click', previousState);
@@ -19,6 +20,7 @@ function nextState(){
 
 //function to render to previous state
 function previousState(){
+  state--
 
 }
 
@@ -29,40 +31,45 @@ function previousState(){
 function (changeState){
     switch(state){
         case 1:
-            header="I Can Read Your Mind"
+            header = header.innerHTML = "I Can Read Your Mind";
             btnNext="Start"
             description=""
             btnReturn=
-        ;
+            break;
+
         case 2:
-            header="Pick A Number From 01-99"
+            header= header.innerHTML= "Pick A Number From 01-99"
             btnNext=
             description=
             btnReturn=
-        ;
+            break;
+
         case 3:
-            header="Add Both Digits Together To Get A New Number"
+            header= header.innerHTML= "Add Both Digits Together To Get A New Number"
             btnNext=
             description=
             btnReturn=
-        ;
+            break;
+
         case 4:
-            header="Subtract Your New Number From The Original Number"
+            header= header.innerHTML= "Subtract Your New Number From The Original Number"
             btnNext=
             description=
             btnReturn=
-        ;
+            break;
+
         case 5:
             header= //funtion for random array
             btnNext=
             description=
             btnReturn=
-        ;
+            break;
+
         case 6:
             header= //factor of 9 symbol
             btnNext=
             description=
             btnReturn=
-        ;
+            break;
     }
 }
