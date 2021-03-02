@@ -4,72 +4,78 @@ const btnNext = document.getElementById('nextButton');
 const description = document.getElementById('description');
 const btnReturn = document.getElementById('returnButton');
 
-let state = 1
-let symbols = []
+//Event Listeners for buttons
 
-
-console.log(header)
-//event listeners for the 'next button' and 'return button'
 btnNext.addEventListener('click', nextState);
-btnReturn.addEventListener('click', previousState);
+btnReturn.addEventListener('click', lastState)
+//variable for state, random, character
+let state = 0
+let random = "";
+let char = ["!","@","#","$","%","^","&","*","~","?","`","+"];
 
-//function to render to next state
+
+//function to generate a random number
+
+//function to increase state = state + 1
 function nextState(){
- state++
+    state++
+    newState();
+   
+    
+}
+//function decrease state = state -1
+function lastState(){
+    state--
+    newState();
 }
 
-//function to render to previous state
-function previousState(){
-  state--
 
-}
+function newState(){
 
-//function to generate random 
+    switch (state){
+        case 0:
+            header.innerHTML = "I Can Read Your Mind";
+            btnNext.innerHTML= "Start";
+            description.innerHTML= " ";
+            btnReturn;
+            break;
 
-
-//switch statements to create 6 states
-function (changeState){
-    switch(state){
         case 1:
-            header = header.innerHTML = "I Can Read Your Mind";
-            btnNext="Start"
-            description=""
-            btnReturn=
+            header.innerHTML= "Pick A Number From 01-99";
+            btnNext.innerHTML= "Next";
+            description.innerHTML= "When You have Your Number Click Next";
+            btnReturn;
             break;
 
         case 2:
-            header= header.innerHTML= "Pick A Number From 01-99"
-            btnNext=
-            description=
-            btnReturn=
+            header.innerHTML= "Add Both Digits Together To Get A New Number";
+            btnNext.innerHTML= "Next"; 
+            description.innerHTML= " Ex. 14 is 1 + 4 = 5 click next to proceed";
+            btnReturn;
             break;
 
         case 3:
-            header= header.innerHTML= "Add Both Digits Together To Get A New Number"
-            btnNext=
-            description=
-            btnReturn=
+            header.innerHTML= "Subtract Your New Number From The Original Number";
+            btnNext.innerHTML= "Next"; 
+            description.innerHTML= "Ex: 14-5=9 click next to proceed";
+            btnReturn;
             break;
 
         case 4:
-            header= header.innerHTML= "Subtract Your New Number From The Original Number"
-            btnNext=
-            description=
-            btnReturn=
+            //header//function for random array
+            header.innerHTML= " "
+            btnNext.innerHTML= "Reveal"; 
+            description.innerHTML= "Find Your New Number Note the symbol besides the number";
+            btnReturn;
             break;
 
         case 5:
-            header= //funtion for random array
-            btnNext=
-            description=
-            btnReturn=
-            break;
-
-        case 6:
-            header= //factor of 9 symbol
-            btnNext=
-            description=
-            btnReturn=
+            //header="" //factor of 9 symbol
+            header.innerHTML= " "
+            btnNext;
+            description.innerHTML= "your symbol is:";
+            btnReturn;
             break;
     }
 }
+newState();
