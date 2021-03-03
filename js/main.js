@@ -5,28 +5,50 @@ const description = document.getElementById('description');
 const btnReturn = document.getElementById('returnButton');
 
 //Event Listeners for buttons
-
 btnNext.addEventListener('click', nextState);
-btnReturn.addEventListener('click', lastState)
-//variable for state, random, character
+btnReturn.addEventListener('click', initState)
+
+
+//state is 0 to be initialized as the first state
 let state = 0
-let random = "";
-let char = ["!","@","#","$","%","^","&","*","~","?","`","+"];
+// symbol for number nine is empty later to be changed with the random symbol function 
+let nineSymbol = " ";
 
 
-//function to generate a random number
+function randomSymbols() {
+
+    let character = ["!","@","#","$","%","&","*","~","?","+"];
+    
+    let numAndSym = " ";
+    
+    nineSymbol = character[Math.floor(Math.random() * 10)];
+  
+    //iterates 100 times from 0 to 99
+    for (let i = 0; i <= 99; i++) {
+        if (i % 9 === 0) {
+            //if i is a factor of 9 run this
+            numAndSym += i + ": " + nineSymbol + "<br>";
+        }
+        else {
+            // if i is not a factor of 9 put a random symbol at i
+            numAndSym += i + ": " + character[Math.floor(Math.random() * 10)] + "<br>";
+            }
+        }
+        return numAndSym;
+    }
 
 //function to increase state = state + 1
 function nextState(){
-    state++
+    state++;
     newState();
    
     
 }
-//function decrease state = state -1
-function lastState(){
-    state--
+//function return to state 0
+function initState(){
+     state=0
     newState();
+
 }
 
 
@@ -50,20 +72,20 @@ function newState(){
         case 2:
             header.innerHTML= "Add Both Digits Together To Get A New Number";
             btnNext.innerHTML= "Next"; 
-            description.innerHTML= " Ex. 14 is 1 + 4 = 5 click next to proceed";
+            description.innerHTML= " Ex. 14 is 1 + 4 = 5 <br> Click Next To Proceed";
             btnReturn;
             break;
 
         case 3:
             header.innerHTML= "Subtract Your New Number From The Original Number";
             btnNext.innerHTML= "Next"; 
-            description.innerHTML= "Ex: 14-5=9 click next to proceed";
+            description.innerHTML= "Ex: 14 - 5 = 9 <br> Click Next To Proceed";
             btnReturn;
             break;
 
         case 4:
             //header//function for random array
-            header.innerHTML= " "
+            header.innerHTML = randomSymbols();
             btnNext.innerHTML= "Reveal"; 
             description.innerHTML= "Find Your New Number Note the symbol besides the number";
             btnReturn;
@@ -71,11 +93,15 @@ function newState(){
 
         case 5:
             //header="" //factor of 9 symbol
-            header.innerHTML= " "
-            btnNext;
-            description.innerHTML= "your symbol is:";
+            header.innerHTML= "<h3>your symbol is:<h3> <br>" + nineSymbol;
+            description.innerHTML= " ";
             btnReturn;
             break;
     }
 }
 newState();
+
+
+
+
+

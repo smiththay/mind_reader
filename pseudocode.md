@@ -11,6 +11,7 @@
 
 
  - one default page that can be rendered into 6 states
+    -each state will have a header, next button, description, and return button
  - one button that can function as a start button then renders to a back button. When on last page, back button goes to default page.
  - one button that functions as a next button ( 2-4), then becomes a reveal button on (5). 
  - Header will have text that change between states
@@ -78,6 +79,4 @@ function render state
         button1 = back = render to default 
         button2 = null
 
-     default:
-        render "state 1"
  }
