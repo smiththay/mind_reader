@@ -30,7 +30,7 @@ function randomSymbols() {
             numAndSym += i + ": " + nineSymbol + "<br>";
         }
         else {
-            // if i is not a factor of 9 put a random symbol at i
+            // if i is not a factor of 9 put a random symbol at i + random symbol
             numAndSym += i + ": " + character[Math.floor(Math.random() * 10)] + "<br>";
             }
         }
@@ -55,16 +55,17 @@ function newState(){
     switch (state){
         case 0:
             header.innerHTML = "I Can Read Your Mind";
+            btnNext.classList.remove('invisible');
             btnNext.innerHTML= "Start";
             description.innerHTML= " ";
-            btnReturn;
+            btnReturn.classList.toggle("invisible");
             break;
 
         case 1:
             header.innerHTML= "Pick A Number From 01-99";
             btnNext.innerHTML= "Next";
             description.innerHTML= "When You have Your Number Click Next";
-            btnReturn;
+            btnReturn.classList.toggle("invisible");
             break;
 
         case 2:
@@ -92,6 +93,7 @@ function newState(){
         case 5:
             //header is factor of 9 symbol
             header.innerHTML= "<h3>your symbol is:<h3> <br>" + nineSymbol;
+            btnNext.classList.add('invisible');
             description.innerHTML= " ";
             btnReturn;
             break;
