@@ -16,9 +16,9 @@ let nineSymbol = " ";
 
 
 function randomSymbols() {
-
+    //array of characters
     let character = ["!","@","#","$","%","&","*","~","?","+"];
-    
+    //
     let numAndSym = " ";
     
     nineSymbol = character[Math.floor(Math.random() * 10)];
@@ -42,7 +42,6 @@ function nextState(){
     state++;
     newState();
    
-    
 }
 //function return to state 0
 function initState(){
@@ -50,7 +49,6 @@ function initState(){
     newState();
 
 }
-
 
 function newState(){
 
@@ -92,7 +90,7 @@ function newState(){
             break;
 
         case 5:
-            //header="" //factor of 9 symbol
+            //header is factor of 9 symbol
             header.innerHTML= "<h3>your symbol is:<h3> <br>" + nineSymbol;
             description.innerHTML= " ";
             btnReturn;
@@ -100,8 +98,5 @@ function newState(){
     }
 }
 newState();
-
-
-
 
 
