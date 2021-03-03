@@ -85,7 +85,7 @@ function newState(){
             //header//function for random array
             header.innerHTML = randomSymbols();
             btnNext.innerHTML= "Reveal"; 
-            description.innerHTML= "Find Your New Number Note the symbol besides the number";
+            description.innerHTML= "Find Your New Number <br> Note the symbol besides the number";
             btnReturn;
             break;
 
